@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger
+
+spring:
+  application:
+    name: order-service
+  kafka:
+    bootstrap-servers: localhost:9092
+
+app:
+  kafka:
+#   сюда пишем:
+    orderTopic: "order-topic"
+#   отсюда читаем:
+    orderStatusTopic: "order-status-topic"
+    orderStatusGroupId: "order-status-group-id"
+
+logging:
+  level:
+    org:
+      springframework: INFO
+      example: INFO
