@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v1/book")
+@RequestMapping("/api/v1/order")
 @RequiredArgsConstructor
 @Tag(name = "Заказы через Kafka", description = "Отправка заказов в Kafka и получение ответа.")
 public class OrderController {
