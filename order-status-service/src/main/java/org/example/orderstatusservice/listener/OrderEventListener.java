@@ -1,4 +1,4 @@
-package com.example.orderstatusservice.listener;
+package org.example.orderstatusservice.listener;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

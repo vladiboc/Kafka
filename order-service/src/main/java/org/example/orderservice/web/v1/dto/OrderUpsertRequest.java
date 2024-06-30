@@ -17,4 +17,5 @@ public record OrderUpsertRequest(
     @NotNull(message = ErrorMsg.EMPTY_QUANTITY)
     @Positive(message = ErrorMsg.QUANTITY_NOT_POSITIVE)
     Integer quantity
-) {}
+) {
+}

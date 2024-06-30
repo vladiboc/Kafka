@@ -1,4 +1,4 @@
-package com.example.orderstatusservice.config;
+package org.example.orderstatusservice.config;
 
 import org.example.libkafka.kafka.MsgConsumerFactory;
 import org.example.libkafka.kafka.MsgProducerFactory;

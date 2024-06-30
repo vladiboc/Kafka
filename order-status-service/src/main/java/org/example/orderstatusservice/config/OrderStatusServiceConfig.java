@@ -1,4 +1,4 @@
-package com.example.orderstatusservice.config;
+package org.example.orderstatusservice.config;
 
 import org.example.libkafka.aop.LoggingAspect;
 import org.springframework.context.annotation.Bean;
