@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: order-status-service
+  kafka:
+    bootstrap-servers: localhost:9092
+
+app:
+  kafka:
+#   сюда пишем:
+    orderStatusTopic: "order-status-topic"
+#   отсюда читаем:
+    orderTopic: "order-topic"
+    orderEventGroupId: "order-event-group-id"
+
+logging:
+  level:
+    org:
+      springframework: INFO
+      example: INFO

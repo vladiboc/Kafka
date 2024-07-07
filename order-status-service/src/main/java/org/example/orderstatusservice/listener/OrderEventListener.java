@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.libkafka.aop.Loggable;
 import org.example.libkafka.model.OrderEvent;
 import org.example.libkafka.model.OrderStatus;
+import org.example.orderstatusservice.service.OrderEventService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -23,6 +24,7 @@ public class OrderEventListener {
   @Value("${app.kafka.orderStatusTopic}")
   private String orderStatusTopic;
   private final KafkaTemplate<String, OrderStatus> kafkaTemplate;
+  private final OrderEventService orderEventService;
 
   @Loggable
   @KafkaListener(topics = {"${app.kafka.orderTopic}"},
@@ -37,8 +39,12 @@ public class OrderEventListener {
     log.info("Получено сообщение о заказе: {}", orderEvent);
     log.info("Параметры полученного сообщения: " +
         "Key: {}, Topic: {}, Partition: {}, Timestamp: {}", key, topic, partition, timestamp);
+
+    this.orderEventService.addEvent(orderEvent);
+
     this.kafkaTemplate.send(
-        this.orderStatusTopic, new OrderStatus("Заказ создан!", Instant.now().getEpochSecond())
+        this.orderStatusTopic,
+        new OrderStatus("Заказ создан! : " + orderEvent.toString(), Instant.now().getEpochSecond())
     );
   }
 }

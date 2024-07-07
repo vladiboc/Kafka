@@ -27,7 +27,9 @@ dependencies {
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.kafka:spring-kafka-test")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	testImplementation("org.testcontainers:kafka")
+	testImplementation("org.testcontainers:junit-jupiter")
+	testImplementation("org.awaitility:awaitility:4.2.0")
 }
 
 tasks.withType<Test> {
