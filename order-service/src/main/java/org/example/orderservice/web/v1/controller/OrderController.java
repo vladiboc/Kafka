@@ -33,6 +33,11 @@ public class OrderController {
   private final OrderMapper orderMapper;
   public final KafkaTemplate<String, OrderEvent> kafkaTemplate;
 
+  /**
+   * Принимает запрос на создание заказа,
+   * с помощью маппера получает из него объект OrderEvent,
+   * и отправляет объект OrderEvent в кафку, в OrderTopic
+   */
   @Operation(
       summary = "Отправить заказ в Kafka.",
       description = "Возвращает полезную нагрузку сообщения, отправленного в Kafka.")

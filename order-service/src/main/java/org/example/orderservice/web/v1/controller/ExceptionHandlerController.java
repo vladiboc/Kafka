@@ -20,6 +20,9 @@ import java.util.List;
 /**
  * Общий обработчик ошибок
  */
+/**
+ * Общий обработчик ошибок web-взаимодействия
+ */
 @RestControllerAdvice
 @Slf4j
 public class ExceptionHandlerController {

@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
+/**
+ * Слушает из кафки OrderStatusTopic
+ * Если находит там объект OrderStatus, то логирует его
+ */
 @Component
 @Slf4j
 public class OrderStatusListener {

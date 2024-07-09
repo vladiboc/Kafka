@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Сервис сохраняет полученные из кафки события заказа
+ */
 @Service
 public class OrderEventService {
   private final List<OrderEvent> orderEventList = new ArrayList<>();
@@ -17,6 +20,11 @@ public class OrderEventService {
     this.orderEventList.add(event);
   }
 
+  /**
+   * Находит и возаврацает сохраннённый объект OrderEvent по его полю order
+   * @param order - строка, наименование заказа, поле объекта OrderEvent
+   * @return  - Optional искомого объекта OrderEvent
+   */
   @Loggable
   public Optional<OrderEvent> getEventByOrder(String order) {
     return this.orderEventList

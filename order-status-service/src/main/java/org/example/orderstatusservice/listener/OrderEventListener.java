@@ -17,6 +17,12 @@ import org.springframework.stereotype.Component;
 import java.time.Instant;
 import java.util.UUID;
 
+/**
+ * Слушает из кафки OrderTopic
+ * Если находит там объект OrderEvent,
+ * то сохраняет его вызовом OrderEventService
+ * и отправляет объект OrderStatus в кафку, в OrderStatusTopic
+ */
 @Component
 @Slf4j
 @RequiredArgsConstructor
